@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>EDUCATIO</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/LogoBlanco.png" rel="icon">
+  <link href="assets/img/LogoBlanco.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: BizPage
+  * Updated: Mar 09 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<!-- Modal inicio sesion-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">INICIAR SESION</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="abs-center">
+      <div class="container">
+          <div class="row">
+            <div class="panel panel-login">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                      <div class="form-group">
+                       <a>Correo electronico</a>
+                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="usuario"  required ><p></p>
+                      </div>
+                      <div class="form-group">
+                        <a>Contraseña</a>
+                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña" required >
+                      </div><p></p>
+                      <div class="form-group">
+                        <a>Rol</a>
+                        <select name="role" id="role" class="form-control form-select" required>
+                          <option value=" " disabled selected hidden>Invitado</option>
+                          <option value="1">Docente</option>
+                          <option value="2">Estudiante</option>
+                          <option value="3">Administrador</option>
+                        </select>
+                      </div>       
+                      <div class="form-group text-center">
+                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                        <label for="remember"> Recordarme</label><p></p>
+                      </div>
+                      <div class="form-group text-center">
+                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember" required >
+                        <label for="remember" > He leído y acepto los términos y condiciones de uso</label>
+                      </div>                                     
+                    </form>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+        <button type="button" class="btn btn-primary" id="login-button">INGRESAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Modal de registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="registerModalLabel">REGISTRO</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <!-- Contenido del formulario de registro -->
+                  <form id="register-form" action="#" method="post" role="form">
+                      <div class="form-group">
+                          <label for="register-username">Nombre de usuario</label>
+                          <input type="text" class="form-control" id="register-username" name="register-username" required>
+                      </div><p></p>
+                      <div class="form-group">
+                          <label for="register-password">Contraseña</label>
+                          <input type="password" class="form-control" id="register-password" name="register-password" required>
+                      </div><p></p>
+                      <div class="form-group">
+                          <label for="register-email">Correo electrónico</label>
+                          <input type="email" class="form-control" id="register-email" name="register-email" required>
+                      </div><p></p>
+                      <div class="form-group">
+                          <label for="register-role">Rol</label>
+                          <select class="form-control form-select" id="register-role" name="register-role">
+                              <option value="1">Docente</option>
+                              <option value="2">Estudiante</option>
+                              <option value="3">Administrador</option>
+                          </select>
+                      </div><p></p>
+                      <button type="submit" class="btn btn-primary">Registrarse</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+<body>
+  
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <h1 class="logo"><a href="index.html"> <img src="/BizPage/assets/img/LogoBlanco.png">  Educatio</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto active" href="#hero">INICIO</a></li>
+              <li><a class="nav-link scrollto" href="#about">NOSOTROS</a></li>
+              <li><a class="nav-link scrollto" href="#contact">CONTÁCTANOS</a></li>
+              <li><a><!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  INGRESA AHORA
+                </button>
+            </ul>
+          </a></li>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+          <form method="post">
+            <i class="bi bi-search"></i> <input type="search" name="search" placeholder="Buscar Materia">
+          </form>
+        </div>
+      </div>
+    </div>
+     
+  </header><!-- End Header -->
+
+  <!-- ======= hero Section ======= -->
+  <section id="hero">
+    
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        
+        <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active" style="background-image: url(assets/img/hero-carousel/1.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Docente</h2>
+                <p class="animate__animated animate__fadeInUp">Podras acceder a nuestro aplicativo con tan solo dar click en registrar,entre nuestros beneficios esta la facilidad de escoger tu propio horario de trabajo para que hagas distribucion de tu tiempo de la mejor manera posible.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/2.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Alumno</h2>
+                <p class="animate__animated animate__fadeInUp">Con nosotros tendras la oportundad de potencializar tus conocimientos, podras escoger materia, tema y docente a tu gusto.</p>
+            </div>
+          </div>
+        </div>
+
+          <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/3.jpeg)">
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Padre</h2>
+                <p class="animate__animated animate__fadeInUp">Si quiere que su hijo aprenda con los mejores pero es menor de edad, no te preocupes, con nosotros el tendra esa oportunidad, tan solo necesitaremos que el tenga tu apoyo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/4.jpg)">
+            <div class="carousel-container">
+              <div class="container">
+                <p class="animate__animated animate__fadeInUp">Con nosotros lograras tus objetivos</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image: url(assets/img/hero-carousel/5.webp)">
+            <div class="carousel-container">
+              <div class="container">
+                <p class="animate__animated animate__fadeInUp">La mejor educación en cualquier modalidad</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Featured Services Section Section ======= -->
+    <section id="featured-services">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 box">
+           <img src="/BizPage/assets/img/gorro.png" width="70px">
+            <h4 class="title">Refuerza y Mejora</h4>
+            <p class="description">¿pierdes materias por no entender un tema?con clases particulares aprende mas rapido, ya que son totalmente pesonalizadas</p>
+          </div>
+
+          <div class="col-lg-3 box box-bg">
+           <img src="/BizPage/assets/img/mundo.png" width="60px">
+            <h4 class="title">Escoja</h4>
+            <p class="description">Selecciones su profesor perfecto según sus nececidades,experiencia,precios. Somos el mayor portal de profesores particulares de colombia</p>
+          </div>
+
+          <div class="col-lg-3 box">
+            <img src="/BizPage/assets/img/horario.png" width="80px">
+            <h4 class="title">Clases cuando quieras</h4>
+            <p class="description">Escoge el horario y fecha que se ajuste mejor a tu dia a dia</p>
+          </div>
+
+          <div class="col-lg-3 box box-bg">
+            <img src="/BizPage/assets/img/dinero.png" width="60px">
+             <h4 class="title">Oferta tu precio</h4>
+             <p class="description">¿No tienses suficiente dinero para pagar una clase personalizada? oferta y contraoferta el valor de tu clase</p>
+           </div>
+
+        </div>
+      </div>
+    </section><!-- End Featured Services Section -->
+   
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="/BizPage/assets/img/educacion-virtual-Democratizar.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3> Bienvenidos a Educatio</h3>
+            <p id='letrad' class="fst-italic">
+              ●En Colombia existe un bajo rendimiento académico en colegios y universidades ya que muchos estudiantes se quedan con vacíos en materias o no entienden temas. Uno de los problemas es que cuando requieren solicitar un profesor se les hace complejo e incluso la atención no suele ser la mejor.
+
+Nuestra aplicación es una herramienta de mediación para encontrar a profesores que se acoplan a tu disponibilidad de tiempo y recursos económicos . Esto se hace porque buscamos mejorar el bajo rendimiento académico y el desconocimiento y desconfianza de contratar un profesor particular ya que una de las razones principales es que el estudiante no pudo entender un tema o quedó inconcluso.
+
+            </p>
+
+            <ul>
+              <li><i class="bi bi-check-circle"></i> Profesores que se adapten a tu disponibilidad de tiempo</li>
+              <li><i class="bi bi-check-circle"></i> puedes hacer pujas con el profesor o estudiante para obtener el mejor precio de la clase </li>
+              <li><i class="bi bi-check-circle"></i> puedes decidir entre varios profesores</li>
+              <li><i class="bi bi-check-circle"></i> puedes puntuar profesores y marcarlos como favoritos </li>
+            </ul>
+
+          </div>
+        </div>
+       
+       
+      </div>
+    </section>
+
+    <section id="contenido">
+    <!-- ======= About Us Section ======= -->
+    <section id="about">
+      <div id="ciudades" class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h3>Ciudades mas activas</h3>
+        </header>
+
+        <div class="row about-cols">
+
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-col">
+              <div class="img">
+                <img src="/BizPage/assets/img/Catedralpopayan.jpg" alt="" class="img-fluid">
+              </div>
+              <h2 class="title">Popayan</a></h2>
+            </div>
+          </div>
+
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-col">
+              <div class="img">
+                <img src="/BizPage/assets/img/barranquilla.webp" alt="" class="img-fluid">
+              </div>
+              <h2 class="title">Barranquilla</a></h2>
+            </div>
+          </div>
+
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-col">
+              <div class="img">
+                <img src="/BizPage/assets/img/medellin.jpg" alt="" class="img-fluid">
+              </div>
+              <h2 class="title">Medellin</a></h2>
+            </div>
+          </div>
+
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="about-col">
+              <div class="img">
+                <img src="/BizPage/assets/img/ciudad-cartagena.webp" alt="" class="img-fluid">
+              </div>
+              <h2 class="title">Cartagena</a></h2>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    
+
+    <!-- ======= Skills Section ======= -->
+    <section id="skills">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h3>Materias mas solicitadas</h3>
+        </header>
+
+        <div class="skills-content">
+
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Fisica <i class="val">100%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Ciencias <i class="val">90%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Ingles <i class="val">75%</i></span>
+            </div>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">Quimica <i class="val">55%</i></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Facts Section ======= -->
+    <section id="facts">
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h3 id="tit">Nuestra comunidad</h3>
+        </header>
+
+        <div id="comunidad" class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Docentes</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="421" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Estudiantes</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Materias</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-purecounter-start="0" data-purecounter-end="38" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Comentarios</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Facts Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h3>Contáctanos</h3>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Lugar</h3>
+              <address>Sena-CTPI-Popayan</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="bi bi-phone"></i>
+              <h3></h3>
+              <p>+57 3117455938</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="bi bi-envelope"></i>
+              <h3>Correo</h3>
+              <p>vfernandez321@misena.edu.co</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Correo" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Motivo" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="Comentario" required></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">Cargando</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Gracias por tu mensaje</div>
+            </div>
+            <div class="text-center"><button type="submit">Enviar</button></div>
+          </form>
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  </section>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>Educatio</h3>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Link Rapido</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Inicio</a></li>
+          </div>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Educatio</strong>
+      </div>
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+      -->
+        Designed by Valeria Fernández</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
